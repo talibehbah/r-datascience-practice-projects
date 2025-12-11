@@ -1,6 +1,5 @@
-# ==
+
 # PROJECT 10: WINE QUALITY CLUSTERING USING K-MEANS
-# ==
 
 # Load required libraries
 library(tidyverse)
@@ -124,3 +123,4 @@ ggplot(wine_with_clusters, aes(x = alcohol, y = residual.sugar, color = cluster)
        x = "Alcohol Content", y = "Residual Sugar",
        color = "Cluster") +
   theme_minimal()
+

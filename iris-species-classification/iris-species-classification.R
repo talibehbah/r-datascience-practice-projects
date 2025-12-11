@@ -1,6 +1,5 @@
-# ==
+
 # PROJECT: IRIS SPECIES CLASSIFICATION USING KNN
-# ==
 
 # Load required libraries
 library(class)

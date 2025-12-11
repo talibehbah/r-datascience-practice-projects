@@ -1,6 +1,5 @@
-# =============================================================================
+
 # PROJECT: STUDENT PERFORMANCE PREDICTION USING LINEAR REGRESSION
-# =============================================================================
 
 # Load required libraries
 library(tidyverse)
@@ -79,7 +78,7 @@ SST <- sum((mean(student$G3) - G3.predictions_results$actual)^2)
 R2 <- 1 - (SSE / SST)
 
 # Print model performance
-cat("\n=== MODEL PERFORMANCE ===\n")
+cat("\n MODEL PERFORMANCE \n")
 cat("R-squared:", round(R2, 3), "\n")
 cat("RMSE:", round(RMSE, 3), "\n")
 cat("MSE:", round(MSE, 3), "\n")

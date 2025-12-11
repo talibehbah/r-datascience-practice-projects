@@ -1,6 +1,6 @@
-# =============================================================================
+# ==
 # PROJECT: EMPLOYEE ATTRITION ANALYSIS USING LOGISTIC REGRESSION
-# =============================================================================
+# ==
 
 # Load required libraries
 library(tidyverse)
@@ -36,7 +36,7 @@ emp_attr$TenureRatio <- emp_attr$YearsAtCompany / emp_attr$TotalWorkingYears
 emp_attr$HighOverTime <- ifelse(emp_attr$OverTime == "Yes", 1, 0)
 
 # Exploratory Data Analysis
-cat("=== DATA STRUCTURE ===\n")
+cat(" DATA STRUCTURE \n")
 str(emp_attr)
 
 # Visualizations
@@ -107,7 +107,7 @@ split <- sample.split(emp_attr$Attrition, SplitRatio = 0.7)
 train <- subset(emp_attr, split == TRUE)
 test <- subset(emp_attr, split == FALSE)
 
-cat("\n=== DATA SPLIT ===\n")
+cat("\n DATA SPLIT \n")
 cat("Training set size:", nrow(train), "\n")
 cat("Testing set size:", nrow(test), "\n")
 
@@ -125,7 +125,7 @@ for(col in names(train)) {
 # Fit logistic regression model
 attrition_model <- glm(Attrition ~ ., data = train, family = binomial)
 
-cat("\n=== MODEL SUMMARY ===\n")
+cat("\n MODEL SUMMARY \n")
 print(summary(attrition_model))
 
 # Make predictions on test data
@@ -136,10 +136,10 @@ test_pred <- factor(test_pred, levels = c("No", "Yes"))
 
 # Calculate accuracy
 accuracy <- mean(test_clean$Attrition == test_pred)
-cat("\n=== MODEL ACCURACY ===\n")
+cat("\n MODEL ACCURACY \n")
 cat("Test Set Accuracy:", round(accuracy, 4), "\n")
 
 # Confusion matrix
-cat("\n=== CONFUSION MATRIX ===\n")
+cat("\n CONFUSION MATRIX \n")
 conf_matrix <- table(Actual = test$Attrition, Predicted = test_pred)
 print(conf_matrix)

@@ -1,6 +1,5 @@
-# ==
+
 # PROJECT: BOSTON HOUSING PRICE PREDICTION USING NEURAL NETWORKS
-# ==
 
 # Load required libraries
 library(MASS)

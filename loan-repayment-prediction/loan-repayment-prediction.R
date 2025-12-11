@@ -1,6 +1,5 @@
-# ==
+
 # PROJECT: LOAN REPAYMENT PREDICTION USING SUPPORT VECTOR MACHINES
-# ==
 
 # Load required libraries
 library(e1071)

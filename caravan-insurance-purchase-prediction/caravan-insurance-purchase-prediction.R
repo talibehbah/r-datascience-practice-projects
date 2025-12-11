@@ -1,6 +1,6 @@
-# =============================================================================
+# ==
 # PROJECT: CARAVAN INSURANCE PURCHASE PREDICTION USING KNN
-# =============================================================================
+# ==
 
 # Load required libraries
 library(class)
@@ -11,15 +11,15 @@ data(Caravan)
 
 # Exploratory Data Analysis
 head(Caravan)
-cat("=== DATA SUMMARY ===\n")
+cat(" DATA SUMMARY \n")
 summary(Caravan$Purchase)
 
 # Check for missing values
-cat("\n=== MISSING VALUES CHECK ===\n")
+cat("\n MISSING VALUES CHECK \n")
 any(is.na(Caravan))
 
 # Check variance of first two columns
-cat("\n=== VARIANCE CHECK ===\n")
+cat("\n VARIANCE CHECK \n")
 cat("Variance of column 1:", var(Caravan[,1]), "\n")
 cat("Variance of column 2:", var(Caravan[,2]), "\n")
 
@@ -27,7 +27,7 @@ cat("Variance of column 2:", var(Caravan[,2]), "\n")
 purchase <- Caravan[,86]
 standardised.caravan <- scale(Caravan[,-86])
 
-cat("\n=== VARIANCE AFTER STANDARDIZATION ===\n")
+cat("\n VARIANCE AFTER STANDARDIZATION \n")
 cat("Variance of standardized column 1:", var(standardised.caravan[,1]), "\n")
 cat("Variance of standardized column 2:", var(standardised.caravan[,2]), "\n")
 
@@ -40,7 +40,7 @@ test.purchase <- purchase[test.index]
 train.data <- standardised.caravan[-test.index,]
 train.purchase <- purchase[-test.index]
 
-cat("\n=== DATA SPLIT ===\n")
+cat("\n DATA SPLIT \n")
 cat("Training data size:", nrow(train.data), "\n")
 cat("Testing data size:", nrow(test.data), "\n")
 
@@ -48,12 +48,12 @@ cat("Testing data size:", nrow(test.data), "\n")
 set.seed(101)
 predicted.purchase <- knn(train.data, test.data, train.purchase, k = 9)
 
-cat("\n=== KNN PREDICTIONS (FIRST 10) ===\n")
+cat("\n KNN PREDICTIONS (FIRST 10) \n")
 print(head(predicted.purchase, 10))
 
 # Calculate misclassification error
 misclass.error <- mean(test.purchase != predicted.purchase)
-cat("\n=== MODEL PERFORMANCE ===\n")
+cat("\n MODEL PERFORMANCE \n")
 cat("Misclassification Error (k=9):", misclass.error, "\n")
 
 # Find optimal k value using elbow method
@@ -70,7 +70,7 @@ for (i in 1:20) {
 k.values <- 1:20
 error.df <- data.frame(k.values, error.rate)
 
-cat("\n=== ERROR RATES FOR DIFFERENT K VALUES ===\n")
+cat("\n ERROR RATES FOR DIFFERENT K VALUES \n")
 print(error.df)
 
 # Visualize error rates vs k values
@@ -84,7 +84,7 @@ ggplot(data = error.df, aes(x = k.values, y = error.rate)) +
 
 # Find optimal k (minimum error rate)
 optimal.k <- which.min(error.rate)
-cat("\n=== OPTIMAL K VALUE ===\n")
+cat("\n OPTIMAL K VALUE \n")
 cat("Optimal k:", optimal.k, "with error rate:", error.rate[optimal.k], "\n")
 
 # Run KNN with optimal k

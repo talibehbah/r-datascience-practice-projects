@@ -1,6 +1,5 @@
-# =============================================================================
+
 # PROJECT: TITANIC SURVIVAL PREDICTION USING LOGISTIC REGRESSION
-# =============================================================================
 
 # Load required libraries
 library(tidyverse)
@@ -126,7 +125,7 @@ train_prob <- predict(titanic_model, newdata = titanic_train, type = "response")
 train_pred <- ifelse(train_prob > 0.5, 1, 0)
 
 # Confusion matrix for training data
-cat("\n=== TRAINING DATA CONFUSION MATRIX ===\n")
+cat("\n TRAINING DATA CONFUSION MATRIX \n")
 print(table(Actual = titanic_train$Survived, Predicted = train_pred))
 
 # Make predictions on test data
@@ -134,5 +133,6 @@ test_prob <- predict(titanic_model, newdata = titanic_test, type = "response")
 titanic_test$Survived <- ifelse(test_prob > 0.5, 1, 0)
 
 # View test predictions
-cat("\n=== TEST DATA PREDICTIONS (FIRST 10 ROWS) ===\n")
+cat("\n TEST DATA PREDICTIONS (FIRST 10 ROWS) \n")
 print(head(titanic_test, 10))
+

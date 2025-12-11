@@ -1,6 +1,6 @@
-# =============================================================================
+# ==
 # PROJECT: ADULT INCOME CLASSIFICATION USING LOGISTIC REGRESSION
-# =============================================================================
+# ==
 
 # Load required libraries
 library(tidyverse)
@@ -17,7 +17,7 @@ str(adult)
 summary(adult)
 
 # Check employer type distribution
-cat("=== EMPLOYER TYPE DISTRIBUTION ===\n")
+cat(" EMPLOYER TYPE DISTRIBUTION \n")
 print(table(adult$type_employer))
 
 # Clean employer type - combine unemployed categories
@@ -45,11 +45,11 @@ group_emp <- function(job) {
 
 adult$type_employer <- sapply(adult$type_employer, group_emp)
 
-cat("\n=== EMPLOYER TYPE AFTER GROUPING ===\n")
+cat("\n EMPLOYER TYPE AFTER GROUPING \n")
 print(table(adult$type_employer))
 
 # Clean marital status
-cat("\n=== MARITAL STATUS DISTRIBUTION ===\n")
+cat("\n MARITAL STATUS DISTRIBUTION \n")
 print(table(adult$marital))
 
 group_marital <- function(mar) {
@@ -66,11 +66,11 @@ group_marital <- function(mar) {
 
 adult$marital <- sapply(adult$marital, group_marital)
 
-cat("\n=== MARITAL STATUS AFTER GROUPING ===\n")
+cat("\n MARITAL STATUS AFTER GROUPING \n")
 print(table(adult$marital))
 
 # Group countries
-cat("\n=== COUNTRY DISTRIBUTION ===\n")
+cat("\n COUNTRY DISTRIBUTION \n")
 print(table(adult$country))
 
 # Define country groups
@@ -105,7 +105,7 @@ group_country <- function(ctry) {
 
 adult$country <- sapply(adult$country, group_country)
 
-cat("\n=== COUNTRY AFTER GROUPING ===\n")
+cat("\n COUNTRY AFTER GROUPING \n")
 print(table(adult$country))
 
 # Convert to factors
@@ -116,7 +116,7 @@ adult$marital <- sapply(adult$marital, factor)
 # Handle missing values (represented as '?')
 adult[adult == '?'] <- NA
 
-cat("\n=== EMPLOYER TYPE AFTER HANDLING MISSING ===\n")
+cat("\n EMPLOYER TYPE AFTER HANDLING MISSING \n")
 print(table(adult$type_employer))
 
 # Convert remaining columns to factors
@@ -135,7 +135,7 @@ adult <- na.omit(adult)
 missmap(adult, y.at = c(1), y.labels = c(''), col = c('yellow', 'black'))
 
 
-cat("\n=== DATA STRUCTURE AFTER CLEANING ===\n")
+cat("\n DATA STRUCTURE AFTER CLEANING \n")
 str(adult)
 
 # Visualizations
@@ -161,12 +161,12 @@ sample <- sample.split(adult$income, SplitRatio = 0.70)
 train = subset(adult, sample == TRUE)
 test = subset(adult, sample == FALSE)
 
-cat("\n=== DATA SPLIT ===\n")
+cat("\n DATA SPLIT \n")
 cat("Training set size:", nrow(train), "\n")
 cat("Testing set size:", nrow(test), "\n")
 
 # Build logistic regression model
 model = glm(income ~ ., family = binomial(logit), data = train)
 
-cat("\n=== MODEL SUMMARY ===\n")
+cat("\n MODEL SUMMARY \n")
 print(summary(model))
