@@ -1,0 +1,14 @@
+# System files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Session files
+.Rapp.history
+.RData
+.RDataTmp
+
+# RStudio temporary files
+rsconnect/
