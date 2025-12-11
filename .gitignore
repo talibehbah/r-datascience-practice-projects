@@ -9,6 +9,7 @@ Thumbs.db
 .Rapp.history
 .RData
 .RDataTmp
+.Rhistory
 
 # RStudio temporary files
 rsconnect/
